@@ -11,7 +11,7 @@ const app = express()
 
 app.use(
     cors({
-        origin:`http://localhost:${process.env.CORS_ORIGIN}`,
+        origin: process.env.NODE_ENV === 'production'? `${process.env.CORS_ORIGIN}`: `http://localhost:${process.env.CORS_ORIGIN}`,
         credentials: true,
     })
 );
